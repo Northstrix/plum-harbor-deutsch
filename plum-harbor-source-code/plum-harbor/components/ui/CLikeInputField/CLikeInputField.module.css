@@ -1,0 +1,45 @@
+/* src/components/CLikeInputField.module.css */
+
+.inputContainer {
+    position: relative; /* Position relative for absolute positioning of the icon */
+    width: 100%; /* Ensure container takes full width */
+  }
+  
+  .CLikeInputField {
+    width: 100%; /* Full width input */
+    display: flex;
+    align-items: center; /* Center align text vertically */
+    line-height: 1; /* Maintain line height */
+    border-radius: var(--generalBorderRadius);
+    padding: 1rem 1.232rem; /* Same padding as ChronicleButton */
+    cursor: text; /* Change cursor to text for input */
+    border: none; /* No border for default state */
+    background: var(--foreground);
+    color: var(--background);
+    transition: background .4s linear, border-color .4s linear; /* Transition effects */
+    will-change: background, border-color;
+    font-size: 1.025rem; /* Match font size with ChronicleButton */
+    border: 2px solid var(--foreground);
+    font-weight: 700;
+  }
+  
+  .eyeButton {
+    position: absolute;
+    right: 10px; /* Adjust as needed */
+    top: calc(50% - 17px); /* Center vertically, adjusted for button size */
+    width: 34px; /* Width of the button (24px icon + 10px) */
+    height: 34px; /* Height of the button (24px icon + 10px) */
+    background: var(--eyeIconBackground); /* Background color of the button */
+    border-radius: 50%; /* Make it circular */
+    border: none;
+    cursor: pointer;
+  
+    display: flex; /* Use flexbox */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+  }
+  
+  .eyeIcon {
+     width: 20px; /* Adjust size as needed (make it smaller to fit well) */
+     height: auto; /* Maintain aspect ratio */
+  }

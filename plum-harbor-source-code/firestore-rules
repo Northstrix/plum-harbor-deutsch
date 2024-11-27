@@ -1,0 +1,22 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Match the user's private directory
+    match /data/{userEmail}/private/{document=**} {
+      allow read, write: if request.auth != null && request.auth.token.email == userEmail;
+    }
+
+    // Match the user's public directory
+    match /data/{userEmail}/public/{document=**} {
+      allow read: if true; // Anyone can read
+      allow write: if request.auth != null && request.auth.token.email == userEmail; // Only the user can write
+    }
+
+    // Match the received files directory
+    match /data/{userEmail}/receivedFiles/{document=**} {
+      allow read: if request.auth != null && request.auth.token.email == userEmail; // Only the user can read
+      allow write: if request.auth != null; // Any authenticated user can write
+    }
+  }
+}
